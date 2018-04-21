@@ -1,3 +1,14 @@
-console.log('haloo ebiz');
-console.log('dirname: ', __dirname);
-console.log('filename: ', __filename);
+
+// normal function
+function sayHi(){
+    console.log('hi');
+}
+
+sayHi();
+
+// function expression
+var sayBye = function(){
+    console.log('bye');   
+}
+
+sayBye();
