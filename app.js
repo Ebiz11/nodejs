@@ -1,9 +1,24 @@
 var events = require('events');
 
-var myEmitter = new events.EventEmitter();
+var util = require('util');
 
-myEmitter.on('someEvent', function(msg){
-    console.log(msg);
+var Person = function(name){
+    this.name = name;
+};
+
+util.inherits(Person, events.EventEmitter);
+
+var dele = new Person('dele');
+var ali = new Person('ali');
+var eriksen = new Person('eriksen');
+
+var people = [dele, ali, eriksen];
+
+people.forEach(function(person){
+    person.on('speak', function(msg){
+        console.log(person.name + ' said: '+ msg);
+    })
 });
 
-myEmitter.emit('someEvent', 'the event was emitted');
+dele.emit('speak', 'hey dudes');
+ali.emit('speak', 'hey dudes');
