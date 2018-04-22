@@ -1,20 +1,13 @@
-var http = require('http');
+var express = require('express');
 
-var fs = require('fs');
+var app = express();
 
-var server = http.createServer(function(req, res){
-    console.log('request was made: '+ req.url);
-    
-    res.writeHead(200, {'Content-Type' : 'application/json'});
-    var myObj = {
-        name: 'Ebiz',
-        job: 'Ninja',
-        age: 24
-    };
-
-    res.end(JSON.stringify(myObj));
+app.get('/', function(req, res){
+    res.send('This is homepage');
 });
 
-server.listen(2028, '127.0.0.1');
+app.get('/contact', function(req, res){
+    res.send('this is contact page');
+})
 
-console.log('now listen to port 2018');
+app.listen(4002);
