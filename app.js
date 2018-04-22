@@ -2,21 +2,15 @@ var http = require('http');
 
 var fs = require('fs');
 
-var myReadStream = fs.createReadStream(__dirname+'/readMe.txt', 'utf8');
-var myWriteStream = fs.createWriteStream(__dirname+'/writeMe.txt');
-
-myReadStream.on('data', function(chunk){
-    console.log('new chunk received');
-    myWriteStream.write(chunk);
-})
-
-// var server = http.createServer(function(req, res){
-//     console.log('request was made: '+ req.url);
+var server = http.createServer(function(req, res){
+    console.log('request was made: '+ req.url);
     
-//     res.writeHead(200, {'Content-Type' : 'text/plain'});
-//     res.end('hey ebiz');
-// });
+    res.writeHead(200, {'Content-Type' : 'text/plain'});
+    var myReadStream = fs.createReadStream(__dirname+'/readMe.txt','utf8');
 
-// server.listen(2028, '127.0.0.1');
+    myReadStream.pipe(res);
+});
 
-// console.log('now listen to port 2018');
+server.listen(2028, '127.0.0.1');
+
+console.log('now listen to port 2018');
