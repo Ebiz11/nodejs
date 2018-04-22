@@ -27,5 +27,14 @@
     <h1>Hallo <%= fullname %> ! Welcome to tour profile</h1> 
     <h3>Your Age: <%= age %> </h3>
     <h3>Your Jobs: <%= jobs %> </h3>
+
+    <h3>Hobbies</h3>
+    <ul>
+        <% hobbies.forEach(function(i){ %>
+
+        <li><%= i %></li>
+
+        <% }); %>
+    </ul>
 </body> 
 </html>

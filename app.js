@@ -16,7 +16,8 @@ app.get('/profile/:name', function(req, res){
     var data = {
         fullname: req.params.name,
         age: 24,
-        jobs: 'Ninja'
+        jobs: 'Ninja',
+        hobbies: ['mancing', 'sepakbola', 'tinju']
     };
 
     res.render('profile', data);
