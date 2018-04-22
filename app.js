@@ -2,16 +2,24 @@ var express = require('express');
 
 var app = express();
 
+app.set('view engine', 'ejs');
+
 app.get('/', function(req, res){
-    res.send('This is homepage');
+    res.sendFile(__dirname+'/index.html');
 });
 
 app.get('/contact', function(req, res){
-    res.send('this is contact page');
+    res.sendFile(__dirname+'/contact.html');
 });
 
 app.get('/profile/:name', function(req, res){
-    res.send('profile name '+ req.params.name);
+    var data = {
+        fullname: req.params.name,
+        age: 24,
+        jobs: 'Ninja'
+    };
+
+    res.render('profile', data);
 })
 
 app.listen(4002);
