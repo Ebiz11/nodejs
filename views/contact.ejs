@@ -10,12 +10,12 @@
     <!-- <p><%= qs.dept %></p> 
     <p><%= qs.name %></p>  -->
 
-    <form id="contact-form">
+    <form id="contact-form" method="POST" action="/contact">
         <label for="who">Who do you to contact?</label>
         <input type="text" name="who" value="<%= qs.name %>">
         <br>
         <label for="who">Which departement?</label>
-        <input type="text" name="departement" value="<%= qs.dept %>">
+        <input type="text" name="department" value="<%= qs.dept %>">
         <br>
         <label for="email">Your email?</label>
         <input type="email" name="email" value="<%= qs.email %>">
